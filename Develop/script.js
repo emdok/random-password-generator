@@ -26,28 +26,39 @@ THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page*/
 
-// Assignment code here
-var specialCharacters = ' !#$%&()*+,-./:;<=>?@[\]^_`{|}~';
-var letters = 'abcdefghijklmnopqrstuvxyz'
-var numbers = '0123456789';
 
+// Assignment code here
+var specialCharacters = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
+var letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','x','y','z'];
+var numbers = ['0','1','2','3','4','5','6','7','8','9'];
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  // Ask user input 
-  var specialChar = window.confirm("Would you like to use special characters?");
-  var upperCase = window.confirm("Would you like to use upper case letters?");
-  var lowerCase = window.confirm("would you like to use lower case letters?");
-  var pwLength = window.prompt("How long would you like your password to be? Choose a number between 8 and 128.");
+  // ask user how long the password should be, change to int
+  var pwLength = parseInt(window.prompt("How long do you want your password to be? Choose a number between 8 and 128."));
+  // validate user input
+  if (!pwLength) {
+    alert("Please enter a value!");
+  } 
+  else if (pwLength < 8 || pwLength > 128) {
+    pwLength = parseInt(prompt("How long do you want your passworsd to be? Choose a number between 8 and 128."));
+  }
+  else {
+    useSpcChar = confirm("Special characters?");
+    useLowerCase = confirm("Lower case letters?");
+    useUpperCase = confirm("Upper case letters?");
+    useNumbers = confirm("Numbers?");
+  }
 
-if(specialChar && upperCase && lowerCase) {
-  var pwLength = length/3;
-  console.log(pwLength);
-}
-
+  if (useSpcChar && useLowerCase && useUpperCase && useNumbers) {
+    for (let i = 0; i < array.length; i++) {
+      const element = array[i];
+      
+    }
+  }
 
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -57,4 +68,4 @@ if(specialChar && upperCase && lowerCase) {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword();
+generateBtn.addEventListener("click", writePassword);
