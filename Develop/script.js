@@ -29,36 +29,51 @@ THEN the password is either displayed in an alert or written to the page*/
 
 // Assignment code here
 var specialCharacters = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
-var letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','x','y','z'];
-var numbers = ['0','1','2','3','4','5','6','7','8','9'];
+var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'y', 'z'];
+// Write function to change letters array to uppercase
+var capLetters = letters.map(capLetters=>{return capLetters.toUpperCase();});
+var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+
+
+
+console.log(capLetters);
+
+//function to create password
+function generatePassword() {
+  var password = " ";
+  var pwLength = parseInt(window.prompt("How long do you want your password to be? Choose a number between 8 and 128."));
+  // validate user input of password length
+  if (!pwLength) {
+    alert("Please enter a value!");
+  }
+  // if password is less than 8 or more than 128, prompt user again for length
+  else if (pwLength < 8 || pwLength > 128) {
+    pwLength = parseInt(prompt("How long do you want your passworsd to be? Choose a number between 8 and 128."));
+  }
+  //if length meets criteria, prompt user for characters they want to use
+  else {
+    isSpcChar = confirm("Special characters?");
+    isLowerCase = confirm("Lower case letters?");
+    isUpperCase = confirm("Upper case letters?");
+    isNumbers = confirm("Numbers?");
+  }
+
+  //Write up conditional statements based on user character choices
+
+  if (isSpcChar && isLowerCase && isUpperCase && isNumbers) {
+
+  }
+
+  // return created password
+  return password
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  // ask user how long the password should be, change to int
-  var pwLength = parseInt(window.prompt("How long do you want your password to be? Choose a number between 8 and 128."));
-  // validate user input
-  if (!pwLength) {
-    alert("Please enter a value!");
-  } 
-  else if (pwLength < 8 || pwLength > 128) {
-    pwLength = parseInt(prompt("How long do you want your passworsd to be? Choose a number between 8 and 128."));
-  }
-  else {
-    useSpcChar = confirm("Special characters?");
-    useLowerCase = confirm("Lower case letters?");
-    useUpperCase = confirm("Upper case letters?");
-    useNumbers = confirm("Numbers?");
-  }
-
-  if (useSpcChar && useLowerCase && useUpperCase && useNumbers) {
-    for (let i = 0; i < array.length; i++) {
-      const element = array[i];
-      
-    }
-  }
 
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
