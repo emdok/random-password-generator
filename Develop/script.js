@@ -37,8 +37,6 @@ var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 //function to create password
 function generatePassword() {
-  var password = " ";
-  // var pwLength = parseInt(window.prompt("How long do you want your password to be? Choose a number between 8 and 128."));
 
   // validate user input of password length
   do {
@@ -46,10 +44,6 @@ function generatePassword() {
   }
   while (pwLength < 8 || pwLength > 128 || !pwLength) {
   }
-
-
-
-
 
   //if length meets criteria, prompt user for characters they want to use
 
