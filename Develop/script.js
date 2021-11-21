@@ -52,27 +52,36 @@ function generatePassword() {
   var isLowerCase = confirm("Lower case letters?");
   var isUpperCase = confirm("Upper case letters?");
   var isNumbers = confirm("Numbers?");
+  var guaranteePassword = "";
 
   //Use Switch statement to return password characters based on user character choices
   if (isSpcChar) {
+    guaranteePassword += specialCharacters[Math.floor(Math.random()*specialCharacters.length)];
     password = password.concat(specialCharacters);
   }
   if (isLowerCase) {
+    guaranteePassword += letters[Math.floor(Math.random()*letters.length)];
     password = password.concat(letters);
   }
   if (isUpperCase) {
+    guaranteePassword += capLetters[Math.floor(Math.random()*capLetters.length)];
     password = password.concat(capLetters);
   }
   if (isNumbers) {
+    guaranteePassword += numbers[Math.floor(Math.random()*numbers.length)];
     password = password.concat(numbers);
   }
-  console.log(password);
+
 
   var afterPassword = "";
-  for (let i = 0; i < pwLength; i++) {
+
+  console.log(pwLength - guaranteePassword.length)
+  for (let i = 0; i < (pwLength - guaranteePassword.length); i++) {
     afterPassword += password[Math.floor(Math.random()*password.length)];
   }
-  return afterPassword
+
+
+  return afterPassword + guaranteePassword;
 
 }
 // Get references to the #generate element
@@ -90,30 +99,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-
-
-
-
-
-
-
-// if (isSpcChar ) {
-//   password = Array.prototype.concat.apply([], [specialCharacters]);
-//   console.log(password);
-// // return created password
-// return password
-// }
-// if (isLowerCase) {
-//   password += Array.prototype.concat.apply([],[password, letters]);
-//   return password
-// }
-// if (isUpperCase) {
-//   password += Array.prototype.concat.apply([],[password, capLetters]);
-//   return password
-// }
-// if (isNumbers) {
-//   password += Array.prototype.concat.apply([],[password, capLetters]);
-//   return password
-// }
