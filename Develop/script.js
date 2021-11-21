@@ -26,6 +26,9 @@ function generatePassword() {
   var isLowerCase = confirm("Lower case letters?");
   var isUpperCase = confirm("Upper case letters?");
   var isNumbers = confirm("Numbers?");
+
+  /* ***TO DO:*** Add confirm() validation so that if a user chooses "cancel" on all confirms, they have to go back and choose at least one character option */
+
   var guaranteePassword = "";
 
   //Use conditional statement to return password characters based on user character choices and ensure at least one character from each true statement is added to guaranteePassword
