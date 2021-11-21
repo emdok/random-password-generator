@@ -1,33 +1,7 @@
-/*GIVEN I need a new, secure password
-
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
-- Special characters: " !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
-- Uppercase
-- Lowercase
-- Numbers
-- Password Length
-
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
-
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
-
-WHEN asked for character types to include in the password
-THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
-
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page*/
-
 
 // Assignment code here
+
+//Declare character variables to use in generating password
 var specialCharacters = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'y', 'z'];
 // Write function to change letters array to uppercase
@@ -39,6 +13,7 @@ var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 //function to create password
 function generatePassword() {
   var password = [];
+
   // validate user input of password length
   do {
     pwLength = parseInt(prompt("How long do you want your password to be? Choose a number between 8 and 128."))
@@ -47,40 +22,40 @@ function generatePassword() {
   }
 
   //if length meets criteria, prompt user for characters they want to use
-
   var isSpcChar = confirm("Special characters?");
   var isLowerCase = confirm("Lower case letters?");
   var isUpperCase = confirm("Upper case letters?");
   var isNumbers = confirm("Numbers?");
   var guaranteePassword = "";
 
-  //Use Switch statement to return password characters based on user character choices
+  //Use conditional statement to return password characters based on user character choices and ensure at least one character from each true statement is added to guaranteePassword
   if (isSpcChar) {
-    guaranteePassword += specialCharacters[Math.floor(Math.random()*specialCharacters.length)];
+    guaranteePassword += specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
     password = password.concat(specialCharacters);
   }
   if (isLowerCase) {
-    guaranteePassword += letters[Math.floor(Math.random()*letters.length)];
+    guaranteePassword += letters[Math.floor(Math.random() * letters.length)];
     password = password.concat(letters);
   }
   if (isUpperCase) {
-    guaranteePassword += capLetters[Math.floor(Math.random()*capLetters.length)];
+    guaranteePassword += capLetters[Math.floor(Math.random() * capLetters.length)];
     password = password.concat(capLetters);
   }
   if (isNumbers) {
-    guaranteePassword += numbers[Math.floor(Math.random()*numbers.length)];
+    guaranteePassword += numbers[Math.floor(Math.random() * numbers.length)];
     password = password.concat(numbers);
   }
 
-
+  // delcare afterPassword to input random characters from for loop
   var afterPassword = "";
 
+  // For loop to add random characters to afterPassword based on user password length input and existing characters in guaranteePassword
   console.log(pwLength - guaranteePassword.length)
   for (let i = 0; i < (pwLength - guaranteePassword.length); i++) {
-    afterPassword += password[Math.floor(Math.random()*password.length)];
+    afterPassword += password[Math.floor(Math.random() * password.length)];
   }
 
-
+  //Return after password plus guaranteePassword for final Password
   return afterPassword + guaranteePassword;
 
 }
