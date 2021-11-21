@@ -37,7 +37,7 @@ var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 //function to create password
 function generatePassword() {
-
+  var password = [];
   // validate user input of password length
   do {
     pwLength = parseInt(prompt("How long do you want your password to be? Choose a number between 8 and 128."))
@@ -52,17 +52,25 @@ function generatePassword() {
   var isUpperCase = confirm("Upper case letters?");
   var isNumbers = confirm("Numbers?");
 
-
   //Write up conditional statements based on user character choices
+  debugger;
+  switch (isSpcChar, isUpperCase, isLowerCase, isNumbers) {
+    case (isSpcChar):
+      password += specialCharacters;
 
-  if (isSpcChar && isLowerCase && isUpperCase && isNumbers) {
+    case (isUpperCase):
+      password += capLetters;
 
+    case (isLowerCase):
+      password += letters;
+
+    case (isNumbers):
+      password += numbers;
   }
 
-  // return created password
-  return password
-}
 
+  console.log(password);
+}
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -78,3 +86,30 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
+
+
+
+
+
+
+
+// if (isSpcChar ) {
+//   password = Array.prototype.concat.apply([], [specialCharacters]);
+//   console.log(password);
+// // return created password
+// return password
+// }
+// if (isLowerCase) {
+//   password += Array.prototype.concat.apply([],[password, letters]);
+//   return password
+// }
+// if (isUpperCase) {
+//   password += Array.prototype.concat.apply([],[password, capLetters]);
+//   return password
+// }
+// if (isNumbers) {
+//   password += Array.prototype.concat.apply([],[password, capLetters]);
+//   return password
+// }
