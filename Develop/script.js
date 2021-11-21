@@ -35,6 +35,7 @@ var capLetters = letters.map(capLetters => { return capLetters.toUpperCase(); })
 var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 
+
 //function to create password
 function generatePassword() {
   var password = [];
@@ -52,24 +53,27 @@ function generatePassword() {
   var isUpperCase = confirm("Upper case letters?");
   var isNumbers = confirm("Numbers?");
 
-  //Write up conditional statements based on user character choices
-  debugger;
-  switch (isSpcChar, isUpperCase, isLowerCase, isNumbers) {
-    case (isSpcChar):
-      password += specialCharacters;
-
-    case (isUpperCase):
-      password += capLetters;
-
-    case (isLowerCase):
-      password += letters;
-
-    case (isNumbers):
-      password += numbers;
+  //Use Switch statement to return password characters based on user character choices
+  if (isSpcChar) {
+    password = password.concat(specialCharacters);
   }
-
-
+  if (isLowerCase) {
+    password = password.concat(letters);
+  }
+  if (isUpperCase) {
+    password = password.concat(capLetters);
+  }
+  if (isNumbers) {
+    password = password.concat(numbers);
+  }
   console.log(password);
+
+  var afterPassword = "";
+  for (let i = 0; i < pwLength; i++) {
+    afterPassword += password[Math.floor(Math.random()*password.length)];
+  }
+  return afterPassword
+
 }
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
