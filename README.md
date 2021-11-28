@@ -18,6 +18,8 @@ https://emdok.github.io/random-password-generator
 ## Usage
 You can use this program to create a random password to use in any situation where a new password is needed that needs to meet specific criteria.
 
+![Random Password Generator](assets/images/Password-Generator-Image.jpg)
+
 ## Features
 1. Use special characters in your password
 2. Use upper case letters in your password
